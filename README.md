@@ -48,7 +48,7 @@ http://localhost:80
 -> nginx proxies incoming connection to localhost:6666 (ab-test-example-1)
 ```
 
-# Cookie management service endpoints
+# Cookie management service
 ### /resolvr/ab/set/:abTestname
 Set a/b test routing cookie
 - `:abTestName`: PM2 process name
