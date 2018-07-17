@@ -59,3 +59,5 @@ Unset a/b test routing
 # TODO
 - Excempt Resolvr from a/b testing rules (add a fixed route in nginx.conf - /resolvr)
 - Add admin bar that shows a/b cookie is active, and which one
+- UNIX support (currenly executing Window commands to interface with nginx)
+- HTTPS support
