@@ -1,0 +1,4 @@
+nginx-bin-path: 'C:/nginx'
+nginx-config-file: 'C:/nginx/conf/nginx.conf'
+root-app-name: 'jake-test'
+polling-frequency: 5

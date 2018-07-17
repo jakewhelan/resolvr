@@ -2,11 +2,12 @@ const getResolvrAbTestCookies = cookies => Object.keys(cookies).filter(key => ke
 
 module.exports = (fastify, opts, next) => {
   fastify.get('/ab/set/:abTestName', function ({ cookies, params: { abTestName } }, reply) {
-    const resolvrAbTestCookies = getResolvrAbTestCookies(cookies)
-    for (const cookie of resolvrAbTestCookies) {
-      reply.setCookie(cookie, '', { path: '/', expires: -1 })
+    if (cookies) {
+      const resolvrAbTestCookies = getResolvrAbTestCookies(cookies)
+      for (const cookie of resolvrAbTestCookies) {
+        reply.setCookie(cookie, '', { path: '/', expires: -1 })
+      }
     }
-
     const cookie = `resolvr-ab-${abTestName}`
     const value = Date.now()
 

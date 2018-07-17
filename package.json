@@ -1,10 +1,10 @@
 {
-  "name": "resolvr",
+  "name": "@jakewhelan/resolvr",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "standard && tap test/*.test.js test/*/*.test.js test/*/*/*.test.js",
+    "test": "standard",
     "start": "fastify start app.js",
     "dev": "fastify start -l info -P app.js",
     "lint": "standard --fix"
@@ -12,6 +12,8 @@
   "author": "Jake Whelan <jakewhelan22@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rauschma/stringio": "^1.4.0",
+    "cosmiconfig": "^5.0.5",
     "esm": "^3.0.66",
     "fastify": "^1.6.0",
     "fastify-autoload": "^0.4.0",
@@ -21,11 +23,16 @@
     "fastify-http-proxy": "^0.4.2",
     "fastify-plugin": "^1.2.0",
     "fastify-reply-from": "^0.4.5",
+    "minimist": "^1.2.0",
     "nginx-conf": "^1.4.0",
     "pm2": "^3.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "standard": "^11.0.1",
     "tap": "^12.0.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }

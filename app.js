@@ -1,17 +1,11 @@
 const path = require('path')
+const { createNginxConfigWorker } = require('./nginxConfig/nginxConfigWorkerFactory')
 const fastifyAutoLoad = require('fastify-autoload')
 const fastifyCookie = require('fastify-cookie')
+const cosmiconfig = require('cosmiconfig')
+const explorer = cosmiconfig('resolvr')
 
 module.exports = (fastify, opts, next) => {
-  // This loads all plugins defined in plugins
-  // those should be support plugins that are reused
-  // through your application
-  fastify.register(fastifyAutoLoad, {
-    dir: path.join(__dirname, 'plugins')
-  })
-
-  // This loads all plugins defined in services
-  // define your routes in one of these
   fastify.register(fastifyAutoLoad, {
     dir: path.join(__dirname, 'services')
   })
@@ -20,6 +14,12 @@ module.exports = (fastify, opts, next) => {
     if (err) throw err
   })
 
-  // Make sure to call next when done
+  explorer.search().then(async ({ config }) => {
+    const nginxConfigWorker = await createNginxConfigWorker(config)
+    nginxConfigWorker.listen(stdout => {
+      console.log(stdout)
+    })
+  })
+
   next()
 }
