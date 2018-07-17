@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/6076073/42849227-4958b40c-8a1a-11e8-9e7a-149775d01dfa.png)
 <h1 align=center>@jakewhelan/resolvr</h1>
 
-Run a/b tests using PM2 and nginx
+Run A/B tests using PM2 and nginx
 
 `resolvr` is a HTTP router and PM2/nginx A/B test companion - manage A/B test cookies and automagically configure nginx with proxy settings for PM2 instances in real-time
 
