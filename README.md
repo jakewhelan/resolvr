@@ -61,3 +61,5 @@ Unset a/b test routing
 - Add admin bar that shows a/b cookie is active, and which one
 - UNIX support (currenly executing Window commands to interface with nginx)
 - HTTPS support
+- Publish to npm
+- Update documentation with library installation instructions
