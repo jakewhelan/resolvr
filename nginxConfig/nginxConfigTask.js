@@ -2,7 +2,7 @@ const path = require('path')
 const pm2 = require('pm2')
 const argv = require('minimist')(process.argv.slice(2))
 const { NginxConfFile } = require('nginx-conf')
-const { exec } = require('child_process')
+const execa = require('execa')
 let latestConfigBody
 
 const getNginxAbConfig = (rootApp, appList) => {
@@ -72,8 +72,9 @@ const updateNginxConfig = async nginxConfig => {
 
   await amendNginxConfig(nginxConfig, abConfig)
 
-  const { bin } = argv
-  exec(`cd ${bin} && start /MIN /B nginx -s reload && exit`)
+  const { bin: cwd } = argv
+  const { stdout } = execa('nginx', ['-s', 'reload'], { cwd })
+  console.log(stdout)
 
   const { frequency } = argv
   const pollingFrequency = frequency * 1000

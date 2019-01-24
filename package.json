@@ -15,6 +15,7 @@
     "@rauschma/stringio": "^1.4.0",
     "cosmiconfig": "^5.0.5",
     "esm": "^3.0.66",
+    "execa": "^1.0.0",
     "fastify": "^1.6.0",
     "fastify-autoload": "^0.4.0",
     "fastify-cli": "^0.16.3",
